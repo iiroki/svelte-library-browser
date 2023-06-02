@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { fetchLibraries } from '../../api'
+  import { fetchLibraries } from '../../api/library'
   let data = fetchLibraries()
 </script>
 

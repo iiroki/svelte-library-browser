@@ -25,7 +25,7 @@ export type Photo = {
 
 export type Coordinates = {
   readonly lat: number
-  readonly lot: number
+  readonly lon: number
 }
 
 export type Library = {
@@ -45,6 +45,7 @@ export type Library = {
     readonly medium: Photo
     readonly small: Photo
   }
+  readonly coordinates: Coordinates
   readonly description: string
   readonly mainLibrary: false
 }

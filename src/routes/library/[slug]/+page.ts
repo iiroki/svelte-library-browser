@@ -1,7 +1,7 @@
 import { error } from "@sveltejs/kit"
 import type { PageLoad } from "./$types"
-import { fetchLibrary } from '../../../api'
-import type { Library } from '../../../api'
+import { fetchLibrary } from '../../../api/library'
+import type { Library } from '../../../api/library'
 
 export const load: PageLoad = async ({ params }): Promise<Library> => {
   const id = Number(params.slug)
