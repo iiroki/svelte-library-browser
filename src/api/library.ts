@@ -23,6 +23,12 @@ export type Photo = {
   readonly resolution: string
 }
 
+export type Address = {
+  readonly city: string
+  readonly street: string
+  readonly zipcode: string
+}
+
 export type Coordinates = {
   readonly lat: number
   readonly lon: number
@@ -35,9 +41,7 @@ export type Library = {
   readonly slug: string
   readonly type: string
   readonly slogan: string
-  // TODO: address
-  readonly created: string // ISO 8601
-  readonly modified: string // ISO 8601
+  readonly address: Address
   readonly founded: number
   readonly coverPhoto: {
     readonly huge: Photo
