@@ -24,6 +24,7 @@ export type Photo = {
 }
 
 export type Address = {
+  readonly area: string | null
   readonly city: string
   readonly street: string
   readonly zipcode: string
@@ -54,7 +55,12 @@ export type Library = {
   readonly mainLibrary: false
 }
 
-export const fetchLibraries = async (): Promise<ApiCollectionResult<Library>> => {
+export const fetchLibraries = async (
+  filter?: {
+    readonly name?: string
+    readonly city?: string
+  }
+): Promise<ApiCollectionResult<Library>> => {
   const res = await axios.get(`${API_URL}/library`)
   return res.data
 }

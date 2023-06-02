@@ -21,7 +21,7 @@
     <li><a href="/library/{l.id}">{l.name}</a></li>
    {/each} 
   </ul> -->
-  <Table striped>
+  <Table hoverable>
     <caption class='text-xl font-bold'>Libraries</caption>
     <TableHead>
       <TableHeadCell>Name</TableHeadCell>
@@ -30,11 +30,11 @@
     </TableHead>
     <TableBody>
       {#each libraries.items as l}
-        <TableBodyRow>
-          <TableBodyCell>{l.name}</TableBodyCell>
-          <TableBodyCell>{l.address.city}</TableBodyCell>
-          <TableBodyCell>{l.founded ?? '-'}</TableBodyCell>
-        </TableBodyRow>
+      <TableBodyRow on:click={() => window.location.href = `/library/${l.id}`} style="cursor: pointer">
+        <TableBodyCell>{l.name}</TableBodyCell>
+        <TableBodyCell>{l.address.city + (l.address.area ? ` (${l.address.area})` : '')}</TableBodyCell>
+        <TableBodyCell>{l.founded ?? '-'}</TableBodyCell>
+      </TableBodyRow>
       {/each}
     </TableBody>
   </Table>
