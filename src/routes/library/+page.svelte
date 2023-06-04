@@ -1,26 +1,21 @@
-<script lang="ts">
+<script lang='ts'>
   import {
     Table,
     TableBody,
     TableHead,
     TableBodyCell,
     TableHeadCell,
-    TableBodyRow
+    TableBodyRow,
   } from 'flowbite-svelte'
+  import LoadingSpinner from '../../components/LoadingSpinner.svelte';
   import { fetchLibraries } from '../../api/library'
 
   let libraryProm = fetchLibraries()
 </script>
 
 {#await libraryProm}
-  <p>Loading...</p>
+  <LoadingSpinner />
 {:then libraries} 
-  <!-- <p>Total: {libraries.total}</p>
-  <ul>
-   {#each libraries.items as l}
-    <li><a href="/library/{l.id}">{l.name}</a></li>
-   {/each} 
-  </ul> -->
   <Table hoverable>
     <caption class='text-xl font-bold'>Libraries</caption>
     <TableHead>

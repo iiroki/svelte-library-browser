@@ -1,6 +1,6 @@
 <script>
-  import { Navbar, NavBrand, NavHamburger, NavLi, NavUl } from 'flowbite-svelte'
-  import "../app.postcss";
+  import { Navbar, NavBrand, NavHamburger, NavLi, NavUl, A, DarkMode } from 'flowbite-svelte'
+  import '../app.postcss'
 </script>
 
 <Navbar let:hidden let:toggle>
@@ -17,8 +17,18 @@
   <NavHamburger on:click={toggle} />
   <NavUl {hidden}>
     <NavLi href="/library">Libraries</NavLi>
-    <NavLi href="/search">Search</NavLi>
+    <NavLi><DarkMode /></NavLi>
   </NavUl>
 </Navbar>
 
-<slot />
+<div class='p-8' style='max-width: 1200px; margin: 0 auto'>
+  <slot />
+  <A href='https://github.com/iiroki/svelte-library-browser' target='_blank'>
+    <img
+      src='https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png'
+      alt='GitHub link'
+      style='max-height: 60px'
+    />
+  </A>
+</div>
+
