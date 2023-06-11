@@ -6,7 +6,7 @@ const API_URL = 'https://api.kirjastot.fi/v4'
 
 type ApiResult = {
   readonly type: string
-  readonly total: number
+  readonly total: number // NOTE: This does not work with paging!
 }
 
 export type ApiCollectionResult<T> = ApiResult & {
@@ -55,13 +55,27 @@ export type Library = {
   readonly mainLibrary: false
 }
 
+export type LibraryPageInfo = {
+  readonly page: number
+  readonly pageSize: number
+}
+
+export type LibraryFilter = {
+  readonly name?: string
+  readonly city?: string
+}
+
 export const fetchLibraries = async (
-  filter?: {
-    readonly name?: string
-    readonly city?: string
-  }
+  page: number,
+  pageSize: number,
+  filter?: LibraryFilter
 ): Promise<ApiCollectionResult<Library>> => {
-  const res = await axios.get(`${API_URL}/library`)
+  const params = [`limit=${pageSize}`]
+  if (page > 1) {
+    params.push(`skip=${(page - 1) * pageSize}`)
+  }
+
+  const res = await axios.get(`${API_URL}/library?${params.join('&')}`)
   return res.data
 }
 

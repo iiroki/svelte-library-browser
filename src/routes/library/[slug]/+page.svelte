@@ -22,4 +22,4 @@
   </List>
 {/await}
 
-{@html sanitizeHtml(data.description)}
+<P>{@html sanitizeHtml(data.description)}</P>

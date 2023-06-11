@@ -23,12 +23,12 @@
 
 <div class='p-8' style='max-width: 1200px; margin: 0 auto'>
   <slot />
-  <A href='https://github.com/iiroki/svelte-library-browser' target='_blank'>
+  <!-- <A href='https://github.com/iiroki/svelte-library-browser' target='_blank'>
     <img
       src='https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png'
       alt='GitHub link'
       style='max-height: 60px'
     />
-  </A>
+  </A> -->
 </div>
 
